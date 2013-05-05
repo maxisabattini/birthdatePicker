@@ -1,6 +1,7 @@
 var BirthdatePicker = function(elem, options) {
     var self=this;
     self.options = {
+		class : 'birthdatePicker',
         monthsNames : {
             1 : 'January',
             2 : 'February',
@@ -13,7 +14,7 @@ var BirthdatePicker = function(elem, options) {
             9 : 'September',
             10: 'October',
             11: 'November',
-            12: 'December'        
+            12: 'December'
         },
         minYear : 1920,
         maxYear : (new Date().getFullYear()),
@@ -43,10 +44,11 @@ var BirthdatePicker = function(elem, options) {
             selectBox.append(opt);
         }
         selectBox.insertAfter( self.element );
+        selectBox.addClass(self.options.class);
         selectBox.change(function(){
             self.currentMonth = this.value;
             updateField();
-        });        
+        });  
     };
     var createDays = function() {
         var selectBox = $("<select>");
@@ -55,6 +57,7 @@ var BirthdatePicker = function(elem, options) {
             selectBox.append(opt);
         }
         selectBox.insertAfter( self.element );
+        selectBox.addClass(self.options.class);
         selectBox.change(function(){
             self.currentDay = this.value;
             updateField();
@@ -67,6 +70,7 @@ var BirthdatePicker = function(elem, options) {
             selectBox.append(opt);
         }
         selectBox.insertAfter( self.element );
+        selectBox.addClass(self.options.class);
         selectBox.change(function(){
             self.currentYear = this.value;
             updateField();

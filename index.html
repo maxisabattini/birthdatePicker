@@ -1,23 +1,37 @@
 <html>
 <head>
+	
+<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">	
+	
+</head>
+<body>
+	
+<div class="container">
+
+	<h1>Birthdate picker</h1>
+
+	<form class="form-horizontal">
+	  <div class="control-group">
+		<label class="control-label" for="inputEmail">Date</label>
+		<div class="controls">
+		  <input type="hidden" id="datepicker"> 
+		</div>
+	  </div>
+	</form>
+
+</div>
+
+
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+
 <script src="birthdate.picker.js"></script>
 <script>
 
 $(function() {
-    var bdp = new BirthdatePicker("#datepicker");
+    var bdp = new BirthdatePicker("#datepicker", { class:'input-small'});
 });
 
 </script>
-</head>
-<body>
-<div class="demo">
-
-<p>
-Date:
-<input type="text" id="datepicker">    
-</p>
-
-</div><!-- End demo -->
 </body>
 </html>
