@@ -1,7 +1,7 @@
 var BirthdatePicker = function(elem, options) {
     var self=this;
     self.options = {
-		class : 'birthdatePicker',
+	class : 'birthdatePicker',
         monthsNames : {
             1 : 'January',
             2 : 'February',
@@ -18,22 +18,20 @@ var BirthdatePicker = function(elem, options) {
         },
         minYear : 1920,
         maxYear : (new Date().getFullYear()),
-		dateFormat : "yyyy-mm-dd",
-		visualDateFormat : "m-d-y"
-    };   
-    self.currentMonth = 0;
-    self.currentYear = '0000';
-    self.currentDay = 0;
+	dateFormat : "yyyy-mm-dd",
+	visualDateFormat : "m-d-y"
+    };
+    self.options = $.extend( this.options, options );
     
-    self.element = $(elem);
-    self.option = $.extend( this.options, options );
+    self.currentMonth = 1;
+    self.currentYear = self.options.minYear;
+    self.currentDay = 1;
+    
+    self.element = $(elem);    
 
     var updateField = function() {
         function pad(n){return n<10 ? '0'+n : n}
-
-//        var sval = self.currentYear + "-" + pad(self.currentDay) + "-" + pad(self.currentMonth);
         var sval = self.currentYear + "-" + pad(self.currentMonth) + "-" + pad(self.currentDay);
-
         self.element.val(sval);
     };
     
@@ -79,6 +77,4 @@ var BirthdatePicker = function(elem, options) {
     createYears();
     createDays();
     createMonths();
-    
-    updateField();    
 }
